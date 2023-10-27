@@ -51,4 +51,3 @@ const randomNumber = Math.random();
     return computerMove;
   }
 
-}
