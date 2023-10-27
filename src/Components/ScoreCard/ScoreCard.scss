@@ -1,0 +1,62 @@
+@use '../../Styles/variables' as*;
+
+.scorecard {
+    padding-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__banner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 2px solid $HeaderOutline;
+        width: 75vw;
+        height: 25vw;
+        border-radius: 6px;
+        box-sizing: border-box;
+        padding: .5rem;
+
+
+    }
+
+    &__title-div{
+
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    &__title{
+        color: white;
+        width: 45%;
+    }
+
+    &__card{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        text-align: center;
+        padding: .5rem;
+        height: 65%;
+        width: 20%;
+        border-radius: 6px;
+
+    }
+
+    &__label{
+        font-size: .725rem;
+        color: $ScoreText;
+    }
+
+    &__score{
+        font-size: 2.25rem;
+        font-weight: 700;
+        line-height: 2rem;
+        color: #5d5d5d;
+    }
+
+    
+}
