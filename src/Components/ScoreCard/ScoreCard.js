@@ -7,7 +7,7 @@ function ScoreCard({score}) {
         <section className='scorecard'>
             <div className='scorecard__banner'>
                 <div className='scorecard__title-div'>
-                    <img className='scorecard__title' src={logo}></img>
+                    <img className='scorecard__title' alt='logo' src={logo}></img>
                 </div>
                 <div className='scorecard__card'>
                     <p className='scorecard__label'>SCORE</p>
