@@ -2,7 +2,7 @@ import '../Game/Game.scss';
 import { useState } from 'react';
 
 function Game() {
-    const [score, setScore] = useState(0);
+    let [score, setScore] = useState(0);
     const [playerMove, setPlayerMove] = useState("");
     const [compMove, setCompMove] = useState("");
     const [result, setResult] = useState("")
@@ -41,7 +41,7 @@ function Game() {
         }
         if (result === "win") {
             console.log(score)
-            setScore(score++)
+            setScore(score ++)
         }
     }
     //computer move
