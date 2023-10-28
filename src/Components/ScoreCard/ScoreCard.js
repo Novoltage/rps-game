@@ -1,7 +1,7 @@
 import '../ScoreCard/ScoreCard.scss';
 import logo from '../../Assets/images/logo.svg';
 
-function ScoreCard() {
+function ScoreCard({score}) {
 
     return (
         <section className='scorecard'>
@@ -11,7 +11,7 @@ function ScoreCard() {
                 </div>
                 <div className='scorecard__card'>
                     <p className='scorecard__label'>SCORE</p>
-                    <p className='scorecard__score'>12</p>
+                    <p className='scorecard__score'>{score}</p>
                 </div>
             </div>
         </section>
