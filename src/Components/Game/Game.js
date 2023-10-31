@@ -3,49 +3,41 @@ import { useState } from 'react';
 
 function Game() {
     let [score, setScore] = useState(0);
-    const [playerMove, setPlayerMove] = useState("");
-    const [compMove, setCompMove] = useState("");
-    const [result, setResult] = useState("")
+    // const [playerMove, setPlayerMove] = useState('');
+    const [compMove, setCompMove] = useState('');
+    const [result, setResult] = useState('')
 
-    function pMove() {
-        cpMove();
-        if (playerMove === 'rock') {
-            if (compMove === 'scissor')
-                setResult("win");
-            else if (compMove === 'rock')
-                setResult("tie")
-            else {
-                setResult("lost")
-            }
-        }
+    // const randomNumber = Math.random();
+        
+    //     setCompMove(randomNumber)
 
-        //player move is scissor
-        if (playerMove === 'scissor') {
-            if (compMove === 'paper')
-                setResult("win")
-            else if (compMove === 'scissor')
-                setResult("tie")   
-            else {
-                setResult("lost")
-            }
-        }
-        //player move is paper
-        if (playerMove === 'paper') {
-            if (compMove === 'rock')
-                setResult("win")
-            else if (compMove === 'paper')
-                setResult("tie")
-            else {
-                setResult("lost")
-            }
-        }
-        if (result === "win") {
-            console.log(score)
-            setScore(score ++)
-        }
-    }
+    //     if (randomNumber >= 0 && randomNumber < 1 / 3) {
+    //         setCompMove('paper');
+
+    //     } else if (randomNumber >= 2 / 3) {
+    //         setCompMove('rock');
+
+    //     } else {
+    //         setCompMove('scissor');
+    //     };
+
+
+
     //computer move
-    function cpMove() {
+    // function cpMove() {
+    //     const randomNumber = Math.random();
+
+    //     if (randomNumber >= 0 && randomNumber < 1 / 3) {
+    //         setCompMove('paper');
+
+    //     } else if (randomNumber >= 2 / 3) {
+    //         setCompMove('rock');
+
+    //     } else {
+    //         setCompMove('scissor');
+    //     }
+    // }
+    function pMove(playerMove) {
         const randomNumber = Math.random();
 
         if (randomNumber >= 0 && randomNumber < 1 / 3) {
@@ -56,16 +48,61 @@ function Game() {
 
         } else {
             setCompMove('scissor');
+        };
+
+        //player move is rock
+        if (playerMove === 'rock' && compMove === 'scissor') {
+            setResult('win')
+            if (playerMove === compMove) {
+                setResult('tie')
+            } else {
+                setResult('lost')
+            }
         }
-        console.log(compMove)
-        return compMove;
-    }
+
+        //player move is scissor
+        if (playerMove === 'scissor' && compMove === 'paper') {
+            setResult('win')
+            if (playerMove === compMove) {
+                setResult('tie')
+            } else {
+                setResult('lost')
+            }
+        }
+
+        //player move is paper
+        if (playerMove === 'paper' && compMove === 'scissor') {
+            setResult('win')
+            if (playerMove === compMove) {
+                setResult('tie')
+            } else {
+                setResult('lost')
+            }
+        };
+
+        if (result === 'win') {
+            setScore(score ++)
+        };
+        console.log( "player chose " + playerMove)
+        console.log("comp chose " + compMove)
+        console.log( "you " + result)
+        console.log(score)
+    };
 
 
     return (
-        <>
-            <img className=''></img>
-        </>
+        <section className='display'>
+            <div className='game'>
+                <div className='game__top-div'>
+                    <div className='game__button-paper' onClick={() => pMove('paper')}></div>
+                    <div className='game__button-scissor' onClick={() => pMove('scissor')} ></div>
+                </div>
+                <div className='game__button-rock' onClick={() => pMove('rock')}></div>
+            </div>
+            <div className='game__rules'>
+                <button className='game__rules-button'>RULES</button>
+            </div>
+        </section>
     )
 };
 

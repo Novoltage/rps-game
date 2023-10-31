@@ -5,14 +5,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 20%;
 
     &__banner {
         display: flex;
         justify-content: space-between;
         align-items: center;
         border: 2px solid $HeaderOutline;
-        width: 75vw;
-        height: 25vw;
+        width: 80%;
+        height: 80%;
         border-radius: 6px;
         box-sizing: border-box;
         padding: .5rem;
