@@ -1,103 +1,87 @@
 import '../Game/Game.scss';
-import { useState } from 'react';
+import { useEffect, useState} from 'react';
+import ScoreCard from '../ScoreCard/ScoreCard';
 
 function Game() {
     let [score, setScore] = useState(0);
-    // const [playerMove, setPlayerMove] = useState('');
     const [compMove, setCompMove] = useState('');
+    const [playerMove, setPlayerMove] = useState('');
     const [result, setResult] = useState('')
 
-    // const randomNumber = Math.random();
-        
-    //     setCompMove(randomNumber)
+    const outcome = ['rock', 'paper', 'scissor'];
 
-    //     if (randomNumber >= 0 && randomNumber < 1 / 3) {
-    //         setCompMove('paper');
+    function cpMove() {
+        const computerChoice = Math.floor(Math.random() * outcome.length);
 
-    //     } else if (randomNumber >= 2 / 3) {
-    //         setCompMove('rock');
-
-    //     } else {
-    //         setCompMove('scissor');
-    //     };
-
-
-
-    //computer move
-    // function cpMove() {
-    //     const randomNumber = Math.random();
-
-    //     if (randomNumber >= 0 && randomNumber < 1 / 3) {
-    //         setCompMove('paper');
-
-    //     } else if (randomNumber >= 2 / 3) {
-    //         setCompMove('rock');
-
-    //     } else {
-    //         setCompMove('scissor');
-    //     }
-    // }
-    function pMove(playerMove) {
-        const randomNumber = Math.random();
-
-        if (randomNumber >= 0 && randomNumber < 1 / 3) {
+        if (computerChoice == "0" ) {
             setCompMove('paper');
 
-        } else if (randomNumber >= 2 / 3) {
+        } else if (computerChoice == "1") {
             setCompMove('rock');
 
-        } else {
+        } else if (computerChoice == "2") {
             setCompMove('scissor');
+            }
         };
 
+    function handleLogic() {
         //player move is rock
         if (playerMove === 'rock' && compMove === 'scissor') {
-            setResult('win')
-            if (playerMove === compMove) {
-                setResult('tie')
-            } else {
-                setResult('lost')
-            }
+            setResult('win');
+        } else if (playerMove !== 'rock') {
+            setResult('lost');
+        } else {
+            setResult('tied');
         }
+        
 
-        //player move is scissor
+        // //player move is scissor
         if (playerMove === 'scissor' && compMove === 'paper') {
-            setResult('win')
-            if (playerMove === compMove) {
-                setResult('tie')
-            } else {
-                setResult('lost')
-            }
+            setResult('win');
+        } else if (playerMove !== 'scissor') {
+            setResult('lost');
+        } else {
+            setResult('tied');
         }
+        
 
         //player move is paper
-        if (playerMove === 'paper' && compMove === 'scissor') {
-            setResult('win')
-            if (playerMove === compMove) {
-                setResult('tie')
-            } else {
-                setResult('lost')
-            }
-        };
+        if (playerMove === 'paper' && compMove === 'rock') {
+            setResult('win');
+        } else if (playerMove !== 'paper') {
+            setResult('lost');
+        } else {
+            setResult('tied');
+        }
 
-        if (result === 'win') {
-            setScore(score ++)
-        };
-        console.log( "player chose " + playerMove)
-        console.log("comp chose " + compMove)
-        console.log( "you " + result)
-        console.log(score)
+        if (result === "win") {
+            setScore(score+1)
+        }
+        console.log("player chose " + playerMove)
+            console.log("comp chose " + compMove)
+            console.log(score)
+            console.log("you " + result)
+    };
+
+    function handleChoice(playerchoice) {
+        setPlayerMove(playerchoice);
+        cpMove();
     };
 
 
+    useEffect(() => {
+        handleLogic();
+    },[playerMove, compMove])
+
     return (
         <section className='display'>
+            <ScoreCard score={score}/>
             <div className='game'>
                 <div className='game__top-div'>
-                    <div className='game__button-paper' onClick={() => pMove('paper')}></div>
-                    <div className='game__button-scissor' onClick={() => pMove('scissor')} ></div>
+                    <div className='game__button-paper' onClick={() => handleChoice('paper')}></div>
+                    <div className='game__button-scissor' onClick={() => handleChoice('scissor')} ></div>
                 </div>
-                <div className='game__button-rock' onClick={() => pMove('rock')}></div>
+                <div className='game__button-rock' onClick={() => handleChoice('rock')}></div>
             </div>
             <div className='game__rules'>
                 <button className='game__rules-button'>RULES</button>
