@@ -12,12 +12,13 @@ function Game() {
 
     function cpMove() {
         const computerChoice = Math.floor(Math.random() * outcome.length);
+        console.log(computerChoice)
 
         if (computerChoice == "0" ) {
-            setCompMove('paper');
+            setCompMove('rock');
 
         } else if (computerChoice == "1") {
-            setCompMove('rock');
+            setCompMove('paper');
 
         } else if (computerChoice == "2") {
             setCompMove('scissor');
