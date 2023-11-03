@@ -3,7 +3,7 @@ import { useEffect, useState} from 'react';
 import ScoreCard from '../ScoreCard/ScoreCard';
 
 function Game() {
-    let [score, setScore] = useState(0);
+    const [score, setScore] = useState(0);
     const [compMove, setCompMove] = useState('');
     const [playerMove, setPlayerMove] = useState('');
     const [result, setResult] = useState('')
@@ -12,7 +12,7 @@ function Game() {
 
     function cpMove() {
         const computerChoice = Math.floor(Math.random() * outcome.length);
-        console.log(computerChoice)
+        //console.log(computerChoice)
 
         if (computerChoice == "0" ) {
             setCompMove('rock');
@@ -27,36 +27,61 @@ function Game() {
 
     function handleLogic() {
         //player move is rock
-        if (playerMove === 'rock' && compMove === 'scissor') {
-            setResult('win');
-        } else if (playerMove !== 'rock') {
-            setResult('lost');
-        } else {
-            setResult('tied');
-        }
-        
+        // if (playerMove === 'rock' && compMove === 'scissor') {
+        //     setResult('win');
+        // } else if (playerMove !== 'rock') {
+        //     setResult('lost');
+        // } else {
+        //     setResult('tied');
+        // }
+            if(playerMove === 'rock'){
+                if(compMove === 'scissor'){
+                    setResult('win');
+                } else if(playerMove === compMove){
+                    setResult('tied');
+                }else {
+                    setResult('lost')
+                }
+            }
 
         // //player move is scissor
-        if (playerMove === 'scissor' && compMove === 'paper') {
-            setResult('win');
-        } else if (playerMove !== 'scissor') {
-            setResult('lost');
-        } else {
-            setResult('tied');
+        // if (playerMove === 'scissor' && compMove === 'paper') {
+        //     setResult('win');
+        // } else if (playerMove !== 'scissor') {
+        //     setResult('lost');
+        // } else {
+        //     setResult('tied');
+        // }
+        if(playerMove === 'scissor'){
+            if(compMove === 'paper'){
+                setResult('win');
+            } else if(playerMove === compMove){
+                setResult('tied');
+            }else {
+                setResult('lost')
+            }
         }
-        
 
-        //player move is paper
-        if (playerMove === 'paper' && compMove === 'rock') {
-            setResult('win');
-        } else if (playerMove !== 'paper') {
-            setResult('lost');
-        } else {
-            setResult('tied');
+        // //player move is paper
+        // if (playerMove === 'paper' && compMove === 'rock') {
+        //     setResult('win');
+        // } else if (playerMove !== 'paper') {
+        //     setResult('lost');
+        // } else {
+        //     setResult('tied');
+        // }
+        if(playerMove === 'paper'){
+            if(compMove === 'rock'){
+                setResult('win');
+            } else if(playerMove === compMove){
+                setResult('tied');
+            }else {
+                setResult('lost')
+            }
         }
-
         if (result === "win") {
-            setScore(score+1)
+            const newscore = score +1
+            setScore(newscore)
         }
         console.log("player chose " + playerMove)
             console.log("comp chose " + compMove)
@@ -65,14 +90,15 @@ function Game() {
     };
 
     function handleChoice(playerchoice) {
-        setPlayerMove(playerchoice);
         cpMove();
+        setPlayerMove(playerchoice);
+        
     };
 
 
     useEffect(() => {
         handleLogic();
-    },[playerMove, compMove])
+    },[playerMove,compMove,result])
 
     return (
         <section className='display'>
