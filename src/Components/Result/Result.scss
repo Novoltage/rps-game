@@ -1,0 +1,50 @@
+.result {
+
+    &__moves {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    &__rock {
+        height: 4.5rem;
+        width: 4.5rem;
+        border-radius: 50%;
+        background-image: url('../../Assets/images/icon-rock.svg');
+        background-color: white;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 2.25rem;
+        border: 12px solid #dd3c5b;
+        margin: 0rem .5rem;
+        box-shadow: 0px 6px 0px 0px #9c1834, inset 0px 4px 2px 0px #bcc2ce;
+    }
+
+    &__scissor {
+        height: 4.5rem;
+        width: 4.5rem;
+        border-radius: 50%;
+        background-image: url('../../Assets/images/icon-scissors.svg');
+        background-color: white;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 2.25rem;
+        border: 12px solid #eaa31c;
+        margin: 0rem .5rem;
+        box-shadow: 0px 6px 0px 0px #c76c1a, inset 0px 4px 2px 0px #bcc2ce;
+    }
+    
+    &__paper {
+        height: 4.5rem;
+        width: 4.5rem;
+        border-radius: 50%;
+        background-image: url('../../Assets/images/icon-paper.svg');
+        background-color: white;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 2.25rem;
+        border: 12px solid #506ef2;
+        margin: 0rem .5rem;
+        box-shadow:0px 6px 0px 0px #2846c3, inset 0px 4px 2px 0px #bcc2ce;
+    }
+}
