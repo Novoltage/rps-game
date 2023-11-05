@@ -1,6 +1,7 @@
 import '../Game/Game.scss';
 import { useEffect, useState} from 'react';
 import ScoreCard from '../ScoreCard/ScoreCard';
+import Result from '../Result/Result';
 
 function Game() {
     const [score, setScore] = useState(0);
@@ -103,6 +104,7 @@ function Game() {
     return (
         <section className='display'>
             <ScoreCard score={score}/>
+            { result && (<Result result={result} playerMove={playerMove} compMove={compMove}/>)}
             <div className='game'>
                 <div className='game__top-div'>
                     <div className='game__button-paper' onClick={() => handleChoice('paper')}></div>

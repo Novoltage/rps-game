@@ -16,6 +16,6 @@ function ScoreCard({score}) {
             </div>
         </section>
     )
-};
+};_()
 
 export default ScoreCard;
