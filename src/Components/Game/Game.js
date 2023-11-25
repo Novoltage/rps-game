@@ -107,7 +107,7 @@ function Game() {
     return (
         <section className='display'>
             <ScoreCard score={score} />
-            {resultComp === true && isGame === false ? (<Result playerMove={playerMove} result={result} compMove={compMove} resultComp ={resultComp} setResultComp ={setResultComp} isGame ={isGame} setIsGame ={setIsGame} />)
+            {resultComp === true && isGame === false ? (<Result playerMove={playerMove} result={result} compMove={compMove} resultComp={resultComp} setResultComp={setResultComp} isGame={isGame} setIsGame={setIsGame} />)
                 :
                 <>
                     <div className='game'>

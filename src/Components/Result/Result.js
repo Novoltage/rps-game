@@ -107,9 +107,6 @@ function Result({ playerMove, compMove, result, setResultComp, setIsGame, isGame
               <div className='result__paper'></div>
               <p className='result__text'>THE HOUSE PICKED</p>
             </div>
-            <div className='result__playagain'>
-              <p className='result__text'>You Tied</p>
-            </div>
           </>) : <></>}
         {playerMove === "scissor" && compMove === "rock" ? (
           <>
@@ -147,7 +144,7 @@ function Result({ playerMove, compMove, result, setResultComp, setIsGame, isGame
       </div>
       <div className='result__playagain'>
               <p className='result__result'>YOU {result}</p>
-              <button className='result__playagainbutton' onClick={() => playAgain()}>PLAY AGAIN</button>   //play again button
+              <button className='result__playagainbutton' onClick={() => playAgain()}>PLAY AGAIN</button> 
       </div>
     </section>
   );
