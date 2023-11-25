@@ -1,9 +1,9 @@
-import { useRef } from 'react';
+import { useState } from 'react';
 import '../Result/Result.scss';
 import ScoreCard from '../ScoreCard/ScoreCard';
 
 
-function result({ playerMove, compMove }) {
+function Result({ playerMove, compMove, result, setResultComp, setIsGame, isGame, resultComp }) {
 
   // switch (playerMove + compMove) {
   //   case "rockscissor":
@@ -27,6 +27,15 @@ function result({ playerMove, compMove }) {
   //   case "paperpaper":
   //     return <div className='result__moves'><div className='result__paper'></div><p>YOU PICKED</p><div className='result__paper'></div><p>COMP PICKED</p></div>;
   // }
+    //const [resultComp, setResultComp] = useState(false);
+    //const [isGame, setIsGame] = useState(true);
+
+   function playAgain(){
+     setResultComp(false)
+     setIsGame(true)
+     console.log('touched');
+   }
+  
 
   return (
     <section className='result'>
@@ -41,6 +50,7 @@ function result({ playerMove, compMove }) {
               <div className='result__scissor'></div>
               <p className='result__text'>THE HOUSE PICKED</p>
             </div>
+            
           </>)
           : <></>}
         {playerMove === "paper" && compMove === "rock" ? (
@@ -97,6 +107,9 @@ function result({ playerMove, compMove }) {
               <div className='result__paper'></div>
               <p className='result__text'>THE HOUSE PICKED</p>
             </div>
+            <div className='result__playagain'>
+              <p className='result__text'>You Tied</p>
+            </div>
           </>) : <></>}
         {playerMove === "scissor" && compMove === "rock" ? (
           <>
@@ -127,13 +140,17 @@ function result({ playerMove, compMove }) {
               <p className='result__text'>YOU PICKED</p>
             </div>
             <div className='result__div'>
-              <div className='result_scissor'></div>
+              <div className='result__scissor'></div>
               <p className='result__text'>THE HOUSE PICKED</p>
             </div>
           </>) : <></>}
+      </div>
+      <div className='result__playagain'>
+              <p className='result__result'>YOU {result}</p>
+              <button className='result__playagainbutton' onClick={() => playAgain()}>PLAY AGAIN</button>   //play again button
       </div>
     </section>
   );
 }
 
-export default result;
+export default Result;

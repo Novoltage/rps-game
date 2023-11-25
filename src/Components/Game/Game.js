@@ -39,11 +39,11 @@ function Game() {
         // }
         if (playerMove === 'rock') {
             if (compMove === 'scissor') {
-                setResult('win');
+                setResult('WIN');
             } else if (playerMove === compMove) {
-                setResult('tied');
+                setResult('TIED');
             } else {
-                setResult('lost')
+                setResult('LOST')
             }
         }
 
@@ -57,11 +57,11 @@ function Game() {
         // }
         if (playerMove === 'scissor') {
             if (compMove === 'paper') {
-                setResult('win');
+                setResult('WIN');
             } else if (playerMove === compMove) {
-                setResult('tied');
+                setResult('TIED');
             } else {
-                setResult('lost')
+                setResult('LOST')
             }
         }
 
@@ -75,14 +75,14 @@ function Game() {
         // }
         if (playerMove === 'paper') {
             if (compMove === 'rock') {
-                setResult('win');
+                setResult('WIN');
             } else if (playerMove === compMove) {
-                setResult('tied');
+                setResult('TIED');
             } else {
-                setResult('lost')
+                setResult('LOST')
             }
         }
-        if (result === "win") {
+        if (result === "WIN") {
             const newscore = score + 1
             setScore(newscore)
         }
@@ -107,7 +107,7 @@ function Game() {
     return (
         <section className='display'>
             <ScoreCard score={score} />
-            {resultComp === true && isGame === false ? (<Result playerMove={playerMove} result={result} compMove={compMove} />)
+            {resultComp === true && isGame === false ? (<Result playerMove={playerMove} result={result} compMove={compMove} resultComp ={resultComp} setResultComp ={setResultComp} isGame ={isGame} setIsGame ={setIsGame} />)
                 :
                 <>
                     <div className='game'>
