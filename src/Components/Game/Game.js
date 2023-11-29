@@ -2,6 +2,7 @@ import '../Game/Game.scss';
 import { useEffect, useState } from 'react';
 import ScoreCard from '../ScoreCard/ScoreCard';
 import Result from '../Result/Result';
+import Rules from '../Rules/Rules';
 
 function Game() {
     const [score, setScore] = useState(0);
@@ -10,6 +11,7 @@ function Game() {
     const [result, setResult] = useState('')
     const [resultComp, setResultComp] = useState(false);
     const [isGame, setIsGame] = useState(true);
+    const [rules, setRules] =useState(false);
 
     const outcome = ['rock', 'paper', 'scissor'];
 
@@ -98,6 +100,10 @@ function Game() {
         setResultComp(true)
         setIsGame(false)
     };
+    
+    function showRules(){
+        setRules(true)
+    };
 
 
     useEffect(() => {
@@ -107,6 +113,7 @@ function Game() {
     return (
         <section className='display'>
             <ScoreCard score={score} />
+            <Rules rules ={rules} setRules ={setRules}/>
             {resultComp === true && isGame === false ? (<Result playerMove={playerMove} result={result} compMove={compMove} resultComp={resultComp} setResultComp={setResultComp} isGame={isGame} setIsGame={setIsGame} />)
                 :
                 <>
@@ -119,7 +126,7 @@ function Game() {
                     </div>
                 </>}
             <div className='game__rules'>
-                <button className='game__rules-button'>RULES</button>
+                <button className='game__rules-button' onClick={() =>showRules()}>RULES</button>
             </div>
         </section>
     )

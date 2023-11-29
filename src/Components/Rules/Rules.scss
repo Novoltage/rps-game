@@ -1,0 +1,44 @@
+
+
+
+.rules-overlay {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        position: relative;
+        height: 45%;
+        width: 85%;
+        box-shadow: 12px 12px 17px 6px rgba(0, 0, 0, 0.6901960784);
+        border-radius: 1rem;
+    }
+
+
+
+
+    &__close {
+        position: absolute;
+        top: 0vh;
+        right: 0vh;
+        height: 99%;
+        width: 99%;
+        z-index: -1;
+    }
+
+
+}
+
+
